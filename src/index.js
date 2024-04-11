@@ -12,12 +12,11 @@ io.on('connection', (socket) => {
   console.log('Novo cliente conectado');
   // console.log(socket.id)
 
-
+  socket.emit('mensagem', 'Bem-vindo! Você está conectado.');
   socket.on('mensagem', (processinfo) => {
-    console.log(processinfo);
+    console.log(processinfo.status);
   });
 });
-
 
 server.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
